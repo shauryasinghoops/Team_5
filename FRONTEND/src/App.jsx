@@ -1,13 +1,24 @@
-import React from 'react'
-import Navbar from './components/Navbar/Navbar'
+import React from "react";
+import { useRoutes } from "react-router-dom";
+import Login from "./SECTIONS/Login";
+import Home from "./pages/Home";
+
+
+const routes = [
+  { path: "/", element: <Home /> },
+  {path: "/login", element: <Login />},
+];
 
 const App = () => {
-  return (
-    <div className="min-h-screen bg-white">
-      <Navbar />
-      <Hero />
-    </div>
-  )
-}
+  const element = useRoutes(routes);
 
-export default App
+  return (
+    <div>
+      <main className="pt-16">
+        {element}
+      </main>
+    </div>
+  );
+};
+
+export default App;
